@@ -1,0 +1,28 @@
+# Prompt colors
+autoload -U colors && colors
+PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+# export PS1="%F{214}%K{000}%m%F{015}%K{000}:%F{039}%K{000}%~%F{015}%K{000}\$ "
+
+# kubectl autocomplete
+autoload -Uz compinit
+compinit
+source <(kubectl completion zsh)
+
+# Go stuff
+export GOROOT=/usr/local/go
+export GOPATH=/Users/msharff1/go
+
+# goji (installed using brew install gojq)
+alias jq='gojq'
+
+# git aliases
+alias gs='git status'
+
+# vault login
+alias vl="vault login -address=https://vault.pe.t-mobile.com -method=okta username=adm_msharff1 && cat ~/.vault-token | safe auth token"
+
+# Make Home and End useful
+bindkey '\e[H'    beginning-of-line
+bindkey '\e[F'    end-of-line
+
+export PATH=$PATH:/Users/msharff1/go/bin
